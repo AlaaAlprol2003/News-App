@@ -5,8 +5,8 @@ import 'package:news_app/core/resources/colors_manager.dart';
 import 'package:news_app/features/home/categories/home_drawer/change_theme_and_lang_widget.dart';
 
 class HomeDrawer extends StatelessWidget {
-  const HomeDrawer({super.key});
-
+  const HomeDrawer({super.key, required this.goToHome});
+  final void Function() goToHome;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -37,7 +37,9 @@ class HomeDrawer extends StatelessWidget {
                     Icon(Icons.home_outlined),
                     SizedBox(width: 12.w),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        goToHome();
+                      },
                       child: Text(
                         "Go To Home",
                         style: Theme.of(context).textTheme.labelMedium,
