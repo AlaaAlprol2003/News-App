@@ -16,7 +16,7 @@ class NewsApp extends StatelessWidget {
       designSize: Size(393, 852),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
+      builder:(context,child)=> MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: RoutesManager.router,
         initialRoute: RoutesManager.homeScreen,
