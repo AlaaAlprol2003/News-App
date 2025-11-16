@@ -30,6 +30,12 @@ class ThemeManager {
       ),
       unselectedLabelColor: ColorsManager.grey,
     ),
+    cardTheme: CardThemeData(
+      color: ColorsManager.black,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadiusGeometry.circular(84.r),
+      ),
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: ColorsManager.black,

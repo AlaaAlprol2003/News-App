@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/api/api_service.dart';
-import 'package:news_app/api/models/article.dart';
-import 'package:news_app/api/models/source.dart';
+import 'package:news_app/data/api/models/article.dart';
+import 'package:news_app/data/api/models/source.dart';
+import 'package:news_app/repositories/articles_repository.dart';
 
 class ArticleViewModel extends ChangeNotifier {
+  ArticlesRepository articlesRepository;
+  ArticleViewModel({required this.articlesRepository});
   List<Article> articles = [];
   bool isLoading = true;
   String erroeMessage = "";
@@ -11,7 +13,7 @@ class ArticleViewModel extends ChangeNotifier {
   Future<void> loadArticles(Source source) async {
     isLoading = true;
     notifyListeners();
-    var articleResponses = await APIService.getArticles(source);
+    var articleResponses = await articlesRepository.getArticles(source);
     isLoading = false;
     notifyListeners();
     articleResponses.fold(

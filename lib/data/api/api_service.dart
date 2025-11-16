@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:news_app/api/models/article.dart';
-import 'package:news_app/api/models/article_responses.dart';
-import 'package:news_app/api/models/source.dart';
-import 'package:news_app/api/models/sources_responses.dart';
+import 'package:news_app/data/api/models/article.dart';
+import 'package:news_app/data/api/models/article_responses.dart';
+import 'package:news_app/data/api/models/source.dart';
+import 'package:news_app/data/api/models/sources_responses.dart';
 import 'package:news_app/models/news_category.dart';
 import 'package:http/http.dart' as http;
 
@@ -15,7 +15,7 @@ class APIService {
   static const String sourcesEndpoinet = "/v2/top-headlines/sources";
   static const String articlesEndpoinet = "/v2/everything";
 
-  static Future<Either<String, List<Source>>> getNewsSources(
+   Future<Either<String, List<Source>>> getNewsSources(
     NewsCategory category,
   ) async {
     Uri url = Uri.https(baseUrl, sourcesEndpoinet, {
@@ -44,7 +44,7 @@ class APIService {
     }
   }
 
-  static Future<Either<String, List<Article>>> getArticles(
+   Future<Either<String, List<Article>>> getArticles(
     Source source,
   ) async {
     Uri url = Uri.https(baseUrl, articlesEndpoinet, {
