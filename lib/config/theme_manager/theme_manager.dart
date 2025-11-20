@@ -4,7 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/core/resources/colors_manager.dart';
 
 class ThemeManager {
-  static final ThemeData light = ThemeData();
+  static final ThemeData light = ThemeData(
+   
+  );
   static ThemeData dark = ThemeData(
     scaffoldBackgroundColor: ColorsManager.black,
     appBarTheme: AppBarTheme(
@@ -46,6 +48,7 @@ class ThemeManager {
         minimumSize: Size(double.infinity, 0),
       ),
     ),
+    
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: ColorsManager.white,
     ),
@@ -55,6 +58,7 @@ class ThemeManager {
       endIndent: 8.w,
       thickness: 1,
     ),
+
     textTheme: TextTheme(
       bodyMedium: GoogleFonts.inter(
         fontSize: 24.sp,
@@ -82,6 +86,7 @@ class ThemeManager {
         fontWeight: FontWeight.bold,
         color: ColorsManager.white,
       ),
+      
     ),
   );
 }

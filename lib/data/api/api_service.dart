@@ -15,7 +15,7 @@ class APIService {
   static const String sourcesEndpoinet = "/v2/top-headlines/sources";
   static const String articlesEndpoinet = "/v2/everything";
 
-   Future<Either<String, List<Source>>> getNewsSources(
+  Future<Either<String, List<Source>>> getNewsSources(
     NewsCategory category,
   ) async {
     Uri url = Uri.https(baseUrl, sourcesEndpoinet, {
@@ -44,14 +44,12 @@ class APIService {
     }
   }
 
-   Future<Either<String, List<Article>>> getArticles(
-    Source source,
-  ) async {
+  Future<Either<String, List<Article>>> getArticles(Source source) async {
     Uri url = Uri.https(baseUrl, articlesEndpoinet, {
       "apiKey": apiKey,
       "sources": source.id,
     });
-    try{
+    try {
       http.Response serverResponse = await http.get(url);
       var json = jsonDecode(serverResponse.body);
 
@@ -61,7 +59,7 @@ class APIService {
       } else {
         return right(articleResponses.articles);
       }
-    }catch(ex){
+    } catch (ex) {
       if (ex is SocketException) {
         return left("No Internt Connection");
       } else if (ex is HttpException) {
@@ -69,6 +67,37 @@ class APIService {
       } else {
         return left("Bad Format");
       }
+    }
+  }
+
+  Future<Either<String, List<Article>>> getAllArticles({
+    String? searchKey,
+  }) async {
+    Map<String, dynamic> params = {"apiKey": apiKey};
+    if (searchKey != null) {
+      params["q"] = searchKey;
+    }
+    try {
+      Uri url = Uri.https(baseUrl, articlesEndpoinet, params);
+      http.Response serverResponse = await http.get(url);
+
+      var json = jsonDecode(serverResponse.body);
+
+      ArticleResponses articleResponses = ArticleResponses.fromJson(json);
+      if (articleResponses.status == "error") {
+        return left(articleResponses.message ?? "");
+      } else {
+        return right(articleResponses.articles);
+      }
+    } catch (ex) {
+      if (ex is SocketException) {
+        return left("No Internt Connection");
+      } else if (ex is HttpException) {
+        return left("No Response");
+      } else {
+        return left("Bad Format");
+      }
+      
     }
   }
 }

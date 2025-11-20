@@ -4,4 +4,6 @@ import 'package:news_app/data/api/models/source.dart';
 
 abstract class ArticlesRepository {
   Future<Either<String,List<Article>>> getArticles(Source source);
+  Future<Either<String,List<Article>>> getAllArticles(String? searchKey);
+
 }
