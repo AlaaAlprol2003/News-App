@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,7 +36,14 @@ class _ArticleItemState extends State<ArticleItem> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(16.r),
-                child: Image.network(widget.article.urlToImage ?? ""),
+                child: CachedNetworkImage(
+                  imageUrl: widget.article.urlToImage ?? "",
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      CircularProgressIndicator(
+                        value: downloadProgress.progress,
+                      ),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
               ),
               SizedBox(height: 8.h),
 
@@ -90,7 +98,7 @@ class _ArticleItemState extends State<ArticleItem> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(25.r),
-                child: Image.network(widget.article.urlToImage ?? "",),
+                child: Image.network(widget.article.urlToImage ?? ""),
               ),
               SizedBox(height: 16.h),
               Expanded(

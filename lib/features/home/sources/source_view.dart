@@ -91,13 +91,15 @@ class _SourcesViewState extends State<SourcesView> {
           Consumer<ArticleViewModel>(
             builder: (context, provider, child) {
               if (provider.isLoading) {
-                return Center(child: CircularProgressIndicator());
+                return Expanded(child: Center(child: CircularProgressIndicator()));
               }
               if (provider.erroeMessage.isNotEmpty) {
-                return Center(
-                  child: Text(
-                    provider.erroeMessage,
-                    style: TextStyle(color: ColorsManager.grey),
+                return Expanded(
+                  child: Center(
+                    child: Text(
+                      provider.erroeMessage,
+                      style: TextStyle(color: ColorsManager.grey),
+                    ),
                   ),
                 );
               }
