@@ -11,4 +11,9 @@ class ArticlesApiRemoteDataSources implements ArticlesRemoteDataSources {
   Future<Either<String, List<Article>>> getArticles(Source source) {
     return apiService.getArticles(source);
   }
+
+  @override
+  Future<Either<String, List<Article>>> getAllArticles(String? searchKey) {
+    return apiService.getAllArticles(searchKey: searchKey);
+  }
 }

@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:news_app/core/routes_manager/routes_manager.dart';
 import 'package:news_app/features/home/categories/categories_view.dart';
 import 'package:news_app/features/home/categories/home_drawer/home_drawer.dart';
 import 'package:news_app/features/home/sources/source_view.dart';
@@ -22,7 +23,13 @@ class _HomeScreenState extends State<HomeScreen> {
     var provider = Provider.of<HomeViewProvider>(context);
     var appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(title: Text(provider.title == "Home" ? appLocalizations.home : provider.title),surfaceTintColor: Colors.transparent,),
+      appBar: AppBar(title: Text(provider.title == "Home" ? appLocalizations.home : provider.title),surfaceTintColor: Colors.transparent,
+      actions: [
+        IconButton(onPressed: (){
+          Navigator.pushNamed(context, RoutesManager.searchScreen);
+        }, icon: Icon(Icons.search))
+      ],
+      ),
       drawer: HomeDrawer(),
       body: provider.homeView,
     );

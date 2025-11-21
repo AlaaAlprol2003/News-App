@@ -23,7 +23,7 @@ class ThemeManager {
       centerTitle: true,
     ),
 
-    iconTheme: IconThemeData(color: ColorsManager.white),
+    iconTheme: IconThemeData(color: ColorsManager.black),
     drawerTheme: DrawerThemeData(backgroundColor: ColorsManager.black),
     tabBarTheme: TabBarThemeData(
       tabAlignment: TabAlignment.start,
@@ -61,6 +61,25 @@ class ThemeManager {
       endIndent: 8.w,
       thickness: 1,
     ),
+     inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16.r),
+        borderSide: BorderSide(color: ColorsManager.black, width: 1.w),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16.r),
+        borderSide: BorderSide(color: ColorsManager.black, width: 1.w),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16.r),
+        borderSide: BorderSide(color: ColorsManager.black, width: 1.w),
+      ),
+      labelStyle: GoogleFonts.inter(
+        fontSize: 20.sp,
+        fontWeight: FontWeight.w500,
+        color: ColorsManager.black,
+      ),
+    ),
     textTheme: TextTheme(
       bodyMedium: GoogleFonts.inter(
         fontSize: 24.sp,
@@ -103,6 +122,11 @@ class ThemeManager {
         fontWeight: FontWeight.bold,
         color: ColorsManager.black,
       ),
+      displaySmall: GoogleFonts.inter(
+        fontSize: 20.sp,
+        fontWeight: FontWeight.w400,
+        color: ColorsManager.black,
+      ),
     ),
   );
 
@@ -125,6 +149,7 @@ class ThemeManager {
       centerTitle: true,
     ),
     iconTheme: IconThemeData(color: ColorsManager.white),
+    
     drawerTheme: DrawerThemeData(backgroundColor: ColorsManager.black),
     tabBarTheme: TabBarThemeData(
       tabAlignment: TabAlignment.start,
@@ -162,6 +187,25 @@ class ThemeManager {
       endIndent: 8.w,
       thickness: 1,
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16.r),
+        borderSide: BorderSide(color: ColorsManager.white, width: 1.w),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16.r),
+        borderSide: BorderSide(color: ColorsManager.white, width: 1.w),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16.r),
+        borderSide: BorderSide(color: ColorsManager.white, width: 1.w),
+      ),
+      labelStyle: GoogleFonts.inter(
+        fontSize: 20.sp,
+        fontWeight: FontWeight.w500,
+        color: ColorsManager.white,
+      ),
+    ),
     textTheme: TextTheme(
       bodyMedium: GoogleFonts.inter(
         fontSize: 24.sp,
@@ -202,6 +246,11 @@ class ThemeManager {
       displayMedium: GoogleFonts.inter(
         fontSize: 16.sp,
         fontWeight: FontWeight.bold,
+        color: ColorsManager.white,
+      ),
+      displaySmall: GoogleFonts.inter(
+        fontSize: 20.sp,
+        fontWeight: FontWeight.w400,
         color: ColorsManager.white,
       ),
     ),
