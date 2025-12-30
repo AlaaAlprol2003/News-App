@@ -16,9 +16,6 @@ A modern and feature-rich Flutter news application that fetches real-time news f
 - **Efficient Image Loading**: Uses `cached_network_image` for smooth loading and caching of images.
 - **Clean Architecture**: Implements core principles of Clean Architecture (separation of Data, Repository, ViewModel, and UI layers) with Provider for state management.
 
-## Screenshots
-
-*(Coming soon – add your own screenshots here after running the app)*
 
 ## Tech Stack & Packages
 
